@@ -8,7 +8,7 @@ I installed axios to send the form data to our backend, i.e. 'npm install --s ax
 
 ### Client Styles
 
-I created a new file called `product-generator.css` in to style the Product Generation form.
+I created a new file called `product-generator.css` in `src/client/styles` to style the Product Generation form.
 
 In `src/client/js/app.js`, I imported the new css file. 
 
