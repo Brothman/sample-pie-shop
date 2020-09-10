@@ -32,6 +32,12 @@ class Router {
     this._bindHandlers();
     this._hostname = location.host;
     this._enabled = false;
+    //needs to be changed to the production URL
+    const baseURL = "localhost:3000";
+    const randomSubdomain = Math.floor(Math.random() * 10000000);
+    if (window.location.host == baseURL) {
+      window.location = `http://${randomSubdomain}.${baseURL}`
+    }
   }
 
   enable() {

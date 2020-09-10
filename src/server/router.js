@@ -23,26 +23,30 @@ import index from './routes/index';
 import payment from './routes/payment';
 import product from './routes/product';
 import search from './routes/search';
+import verification from './routes/verification';
+import createProduct from './routes/create-product';
 
 // enable URLs like foo.com/accessories
 import categories from '../data/categories';
 const categoryRoutes = categories.map((item) => {
-  return '/' + item;
+  return '*/' + item;
 });
 
 import {Router} from 'express';
 const router = new Router();
 
-router.get('/app-shell', appShell);
+router.get('*/app-shell', appShell);
 router.get(categoryRoutes, category);
-router.get('/cart', cart);
-router.get('/payment', payment.get);
-router.get('/confirmation', payment.confirm);
-router.get(/\/(index.html)?$/, index);
-router.get('/:id', product.get);
-router.get('/search/:query', search.get);
+router.get('*/cart', cart);
+router.get('*/payment', payment.get);
+router.get('*/confirmation', payment.confirm);
+router.get(/\/(index.html)?$/, index); // unsure how to do wilcard in a regular expression
+router.get('*/google*.html', verification.get); // new
+router.get('*/:id', product.get);
+router.get('*/search/:query', search.get);
 
-router.post('/:id/cart', product.addToCart);
-router.post('/payment', payment.pay);
+router.post('*/:id/cart', product.addToCart);
+router.post('*/payment', payment.pay);
+router.post('*/create-product', createProduct.post) // new
 
 export default router;

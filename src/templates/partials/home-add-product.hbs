@@ -1,0 +1,49 @@
+<div class="product-generator">
+    <h2>Add a Product</h2>
+    <p>Use the products generator below to create a custom product.</p>
+    <form action="/create-product" method="post" class="add-product-form">
+        <label for="template">Template:</label>
+        <select id="template" name="template">
+            <option> YouTube Icon Pullover Black</option>
+            <option> Google Light Pen Yellow </option>
+            <option> Google Tee Yellow</option>
+            <option> Google Snapback Black Cap</option>
+            <option> Google Twill Cap</option>
+            <option> Android 25 oz Gear Cap Bottle White</option>
+        </select><br>
+        <label for="channel">Channel:</label>
+        <select id="channel" name="channel">
+            <option> online </option>
+            <option> local </option>
+        </select><br>
+        <label for="language">Language:</label>
+         <select id="language" name="language">
+            <option>en</option>
+            <option>fr</option>
+            <option>jp</option>
+            <option>de</option>
+            <option>it</option>
+            <option>es</option>
+            <option>pt</option>
+            <option>cn</option>
+        </select><br>
+        <label for="country">Country:</label>
+         <select id="country" name="country">
+            <option>US</option>
+            <option>CH</option>
+            <option>FR</option>
+            <option>JP</option>
+            <option>DE</option>
+            <option>IT</option>
+            <option>ES</option>
+            <option>BR</option>
+            <option>PT</option>
+            <option>ZH</option>
+        </select><br>
+        <label for="price">Price in USD:</label>
+        <input placeholder="30 USD" type="text" id="price" name="price"><br>
+        <label for="availability">Availability:</label>
+        <input placeholder="in stock" type="text" id="availability" name="availability"><br>
+        <button id="submit-product" type="submit">Create a Product!</button>
+    </form>
+</div>

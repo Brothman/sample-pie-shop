@@ -4,16 +4,24 @@
 
 I installed axios to send the form data to our backend, i.e. 'npm install --s axios'.
 
-## Styles
+## Client Updates
+
+### Client Styles
 
 I created a new file called `product-generator.css` in to style the Product Generation form.
 
 In `src/client/js/app.js`, I imported the new css file. 
 
-## Client Updates
+### Client Javascript
 
 In `src/client/js/home.js`, I wrote logic to grab form data, send the data to the backend,
 and re-direct the client URL after the server returns the URL for the newly generated product. 
+
+### Client Routing
+
+I edited the constructor of `src/client/js/router.js` to add a "random" subdomain whenever
+anyone visits the website without a subdomain. **We need to change the `baseURL`to the
+URL of the production website.**
 
 ## Server Updates
 
@@ -27,12 +35,18 @@ the database (database submission still needs to be done).
 I edited `src/server/routes/router.js` to import and enable the `verification` and `create-product` routes.
 * I placed the verification route before the product :id wildcard route to ensure the verification route works.
 * I added the '*' wildcard to all routes. I hope that will work for subdomains, however we need to test in
-production.
+production. **We still need to add the wildcard to the regular expression for index.html**
+
+I edited `src/server/routes/index.js` to have an empty array for `homeCategories` and `homeProducts`.
+**Comment out my code and comment in the original code to get the website to work in production.**
 
 ### Server-side HTML
 
-In `src/server/routes`, I edited `index.js` 
+In `src/server/services/templates/partials`, I added `home-add-product.hbs` to generate the HTML
+to create a new product.
 
+In `src/server/services/templates/views`, I edited `index.hbs` to add the new `home-add-product` partial
+to the end of the page.
 
 # Online store PWA sample
 
