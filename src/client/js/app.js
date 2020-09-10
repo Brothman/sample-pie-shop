@@ -28,6 +28,7 @@ import '../styles/menu.css';
 import '../styles/product.css';
 import '../styles/search.css';
 import '../styles/shipping-and-payment.css';
+import '../styles/product-generator.css';
 
 import {instance as router} from './router';
 import {searchInput} from './search-input';

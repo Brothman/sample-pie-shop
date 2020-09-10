@@ -1,3 +1,39 @@
+# Benji Notes
+
+## New NPM Packages
+
+I installed axios to send the form data to our backend, i.e. 'npm install --s axios'.
+
+## Styles
+
+I created a new file called `product-generator.css` in to style the Product Generation form.
+
+In `src/client/js/app.js`, I imported the new css file. 
+
+## Client Updates
+
+In `src/client/js/home.js`, I wrote logic to grab form data, send the data to the backend,
+and re-direct the client URL after the server returns the URL for the newly generated product. 
+
+## Server Updates
+
+### Server Routing
+
+In `src/server/routes`, I edited `index.js` and added `create-product.js` and `verification.js`.
+* `verification.js` offers the HTML for Merchant Center's web crawlers to verify this is a valid website.
+* `create-product.js` receives the client product data, generates a new product, and submits it to 
+the database (database submission still needs to be done).
+
+I edited `src/server/routes/router.js` to import and enable the `verification` and `create-product` routes.
+* I placed the verification route before the product :id wildcard route to ensure the verification route works.
+* I added the '*' wildcard to all routes. I hope that will work for subdomains, however we need to test in
+production.
+
+### Server-side HTML
+
+In `src/server/routes`, I edited `index.js` 
+
+
 # Online store PWA sample
 
 [![Build Status](https://travis-ci.org/GoogleChromeLabs/sample-pie-shop.svg?branch=master)](https://travis-ci.org/GoogleChromeLabs/sample-pie-shop)
