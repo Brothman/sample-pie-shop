@@ -89,3 +89,16 @@ function findUrl(products, productUrl) {
     return product.url === productUrl;
   });
 }
+
+export function addProduct(product) {
+  const db = admin.firestore();
+  const docRef = db.collection('products').doc('data');
+
+  return docRef.update({
+    items: admin.firestore.FieldValue.arrayUnion(product),
+  }).then((res) => {
+    return fei.backup('products').then((data) => {
+      productData = data.products.data.items;
+    });
+  });
+}

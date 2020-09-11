@@ -172,21 +172,20 @@ function requestAnimationFramePromise() {
   return new Promise((resolve) => requestAnimationFrame(resolve));
 }
 
-//also in product.js file for initial product page rendering
+// also in product.js file for initial product page rendering
 function enableShowProductJSON() {
-  const showJSONButton = document.querySelector(".show-JSON");
+  const showJSONButton = document.querySelector('.show-JSON');
   if (showJSONButton) {
-    showJSONButton.addEventListener('click', e => {
-      const jsonData = document.querySelector("#JSON-data");
-      if (showJSONButton.innerHTML == "Hide Product JSON") {
-        jsonData.style.display = "none";
-        showJSONButton.innerHTML = "Show Product JSON";
+    showJSONButton.addEventListener('click', (e) => {
+      const jsonData = document.querySelector('#JSON-data');
+      if (showJSONButton.innerHTML == 'Hide Product JSON') {
+        jsonData.style.display = 'none';
+        showJSONButton.innerHTML = 'Show Product JSON';
+      } else {
+        jsonData.style.display = 'block';
+        showJSONButton.innerHTML = 'Hide Product JSON';
       }
-      else {
-        jsonData.style.display = "block";
-        showJSONButton.innerHTML = "Hide Product JSON";
-      }
-    })
+    });
   }
 }
 

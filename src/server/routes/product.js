@@ -29,7 +29,7 @@ const generateMerchantCenterProduct = (product, req) => {
   const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
   const imageLink = generateImageLink(product);
   const mcProduct = {
-    offerId: product.id,
+    offerId: product.offerId ? product.offerId: product.id,
     title: product.name,
     description: product.description,
     link: fullUrl,

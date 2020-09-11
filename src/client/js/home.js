@@ -26,16 +26,16 @@ function initializeHomePage() {
   submitProductButton.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const name = document.querySelector("#template").value;
-    const channel = document.querySelector("#channel").value;
-    const language = document.querySelector("#language").value;
-    const country = document.querySelector("#country").value;
-    const price = document.querySelector("#price").value;
-    const description = document.querySelector("#description").value;
-    const keywords = document.querySelector("#keywords").value;
-    const category = document.querySelector("#add-category").value;
-    const subcategory = document.querySelector("#add-subcategory").value;
-    const brand = document.querySelector("#brand").value;
+    const name = document.querySelector('#template').value;
+    const channel = document.querySelector('#channel').value;
+    const language = document.querySelector('#language').value;
+    const country = document.querySelector('#country').value;
+    const price = document.querySelector('#price').value;
+    const description = document.querySelector('#description').value;
+    const keywords = document.querySelector('#keywords').value;
+    const category = document.querySelector('#add-category').value;
+    const subcategory = document.querySelector('#add-subcategory').value;
+    const brand = document.querySelector('#brand').value;
 
     const data = {
       name,
@@ -47,27 +47,25 @@ function initializeHomePage() {
       keywords,
       category,
       subcategory,
-      brand
-    }
+      brand,
+    };
 
-    //these are the three blank text fields currently
+    // these are the three blank text fields currently
     if (!price || !description || !keywords) {
-      alert("Please fill out every field to be able create a new product.")
-    }
-    else if (isNaN(price) && price != "") {
-      alert("Please fill out a valid number for the price.")
-    }
-    else {
-      axios.post('/create-product', data).then(response => {
-        console.log(response)
+      alert('Please fill out every field to be able create a new product.');
+    } else if (isNaN(price) && price != '') {
+      alert('Please fill out a valid number for the price.');
+    } else {
+      axios.post('/create-product', data).then((response) => {
+        console.log(response);
         const newUrl = response.data;
         window.location.href = newUrl;
       })
-      .catch(e => {
-        console.error(e);
-        console.log("Unfortunately your request could not be completed at this time. Please try again later.")
-        alert("Unfortunately your request could not be completed at this time. Please try again later.")
-      });
+        .catch((e) => {
+          console.error(e);
+          console.log('Unfortunately your request could not be completed at this time. Please try again later.');
+          alert('Unfortunately your request could not be completed at this time. Please try again later.');
+        });
     }
   });
 
