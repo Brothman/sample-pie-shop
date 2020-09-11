@@ -12,10 +12,15 @@ I created a new file called `product-generator.css` in `src/client/styles` to st
 
 In `src/client/js/app.js`, I imported the new css file. 
 
+I edited `src/client/styles/product.css` to style the 'Show Product JSON' button.
+
 ### Client Javascript
 
 In `src/client/js/home.js`, I wrote logic to grab form data, send the data to the backend,
 and re-direct the client URL after the server returns the URL for the newly generated product. 
+
+In `src/client/js/product.js`, I wrote logic to register the 'Show Product JSON' button click,
+and display the hidden product data returned from the server. 
 
 ### Client Routing
 
@@ -47,6 +52,9 @@ to create a new product.
 
 In `src/server/services/templates/views`, I edited `index.hbs` to add the new `home-add-product` partial
 to the end of the page.
+
+In `src/server/services/templates/views`, I edited `product.hbs` to add the 'Show Product JSON' button
+and the `pre` tag to display the Content API JSON data.
 
 # Online store PWA sample
 
