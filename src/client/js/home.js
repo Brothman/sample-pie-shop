@@ -21,17 +21,17 @@ import pageInit from './page-init';
 import axios from 'axios';
 
 function initializeHomePage() {
-  const submitProductButton = document.querySelector("#submit-product");
+  const submitProductButton = document.querySelector('#submit-product');
 
   submitProductButton.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const template = document.querySelector("#template").value;
-    const channel = document.querySelector("#channel").value;
-    const language = document.querySelector("#language").value;
-    const country = document.querySelector("#country").value;
-    const price = document.querySelector("#price").value;
-    const availability = document.querySelector("#availability").value;
+    const template = document.querySelector('#template').value;
+    const channel = document.querySelector('#channel').value;
+    const language = document.querySelector('#language').value;
+    const country = document.querySelector('#country').value;
+    const price = document.querySelector('#price').value;
+    const availability = document.querySelector('#availability').value;
 
     const data = {
       template,
@@ -39,19 +39,18 @@ function initializeHomePage() {
       language,
       country,
       price,
-      availability
-    }
+      availability,
+    };
 
-    axios.post('/create-product', data).then(response => {
-      console.log(response)
+    axios.post('/create-product', data).then((response) => {
+      console.log(response);
       const newUrl = response.data;
       window.location.href = newUrl;
     })
-    .catch(e => {
-      console.error(e);
-      console.log("Unfortunately your request could not be completed at this time. Please try again later.")
-    });
-
+      .catch((e) => {
+        console.error(e);
+        console.log('Unfortunately your request could not be completed at this time. Please try again later.');
+      });
   });
 
   pageInit();

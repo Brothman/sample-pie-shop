@@ -25,10 +25,8 @@ function index(req, res) {
   res.render('index', {
     cart: req.session.cart,
     categories: categories,
-    // homeCategories: getHomeData().categories,
-    // homeProducts: getHomeData().products,
-    homeCategories: [],
-    homeProducts: [],
+    homeCategories: getHomeData().categories,
+    homeProducts: getHomeData().products,
     layout: req.query.fragment ? 'fragment' : 'layout',
     scripts: [
       '/js/home_main.js',

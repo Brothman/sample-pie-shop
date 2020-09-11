@@ -100,7 +100,7 @@ main p.price {
 
 .show-JSON {
   margin-top: 5%;
-  filter: invert(100%); 
+  filter: invert(100%);
 }
 
 #JSON-data {

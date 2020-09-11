@@ -12,9 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import initializeApp from '../src/services/firebase';
+import '../src/services/firebase';
 import fei from 'firestore-export-import';
 
 
-initializeApp();
 fei.restore('../src/data/products.json');

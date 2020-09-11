@@ -22,7 +22,7 @@ import path from 'path';
 import fs from 'fs';
 
 const DEFAULT_CONFIG_FILE = path.resolve(__dirname, '../data/firebase-admin-key.json');
-const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
+const DATABASE_URL = 'https://st479627-purecake.firebaseio.com';
 
 if (process.env.FB_KEYS) {
   // Try the environment variable first

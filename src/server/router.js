@@ -47,6 +47,6 @@ router.get('*/search/:query', search.get);
 
 router.post('*/:id/cart', product.addToCart);
 router.post('*/payment', payment.pay);
-router.post('*/create-product', createProduct.post) // new
+router.post('*/create-product', createProduct.post); // new
 
 export default router;

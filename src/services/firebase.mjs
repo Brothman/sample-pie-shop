@@ -12,20 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const fei = require('firestore-export-import');
+import fei from 'firestore-export-import';
 import * as admin from 'firebase-admin';
 import path from 'path';
 import fs from 'fs';
 
-const DEFAULT_CONFIG_FILE = path.resolve(__dirname, '../data/firebase-admin-key.json');
-const DATABASE_URL = 'https://pie-shop-app.firebaseio.com';
+const DEFAULT_CONFIG_FILE = '../src/data/firebase-admin-key.json';
+const DATABASE_URL = 'https://st479627-purecake.firebaseio.com';
 
 if (process.env.FB_KEYS) {
   // Try the environment variable first
-  fei.initializeApp(require(process.env.FB_KEYS), DATABASE_URL);
+  fei.initializeApp(process.env.FB_KEYS, DATABASE_URL);
 } else if (fs.existsSync(DEFAULT_CONFIG_FILE)) {
   // Check the default config file second
-  fei.initializeApp(require(DEFAULT_CONFIG_FILE), DATABASE_URL);
+  fei.initializeApp(DEFAULT_CONFIG_FILE, DATABASE_URL);
 } else {
   // Hopefully in Cloud env and can use default credentials
   admin.initializeApp({

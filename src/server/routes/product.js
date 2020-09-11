@@ -21,10 +21,50 @@ import {getProduct} from '../get-data';
 import categories from '../../data/categories';
 import Cart from '../../services/cart';
 
+const generateImageLink = (product) => {
+  return 'https://res.cloudinary.com/pieshop/w_1500/' + product.id + '.png';
+};
+
+const generateMerchantCenterProduct = (product, req) => {
+  const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  const imageLink = generateImageLink(product);
+  const mcProduct = {
+    offerId: product.id,
+    title: product.name,
+    description: product.description,
+    link: fullUrl,
+    imageLink: imageLink,
+    contentLanguage: 'en',
+    targetCountry: 'US',
+    channel: 'online',
+    price: {
+      value: product.price,
+      currency: 'USD',
+    },
+    availability: 'in_stock',
+    condition: 'new',
+  };
+  if (product.brand) {
+    mcProduct.brand = product.brand;
+  }
+  if (product.googleProductCategory) {
+    mcProduct.googleProductCategory = product.googleProductCategory;
+  }
+  if (product.gtin) {
+    mcProduct.gtin = product.gtin;
+  }
+  if (product.mpn) {
+    mcProduct.mpn = product.mpn;
+  }
+  return mcProduct;
+};
+
 const product = {
   get: (req, res, next) => {
     const thisProduct = getProduct(req.params.id);
     if (thisProduct) {
+      thisProduct.mcProduct = generateMerchantCenterProduct(thisProduct, req);
+      thisProduct.mcProductStr = JSON.stringify(thisProduct.mcProduct, null, 2);
       res.render('product', {
         cart: req.session.cart,
         categories: categories,

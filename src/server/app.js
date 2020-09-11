@@ -64,6 +64,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(staticDir));
 
+// robots.txt
+app.use('/robots.txt', (req, res) => {
+  res.type('text/plain');
+  if (req.app.get('env') === 'production') {
+    res.send('User-agent: *\nAllow:');
+  } else {
+    res.send('User-agent: *\nDisallow: /');
+  }
+});
+
 app.use(router);
 
 // Catch 404 and forward to error handler.

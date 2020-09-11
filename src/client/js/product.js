@@ -22,18 +22,17 @@ import pageInit from './page-init';
 function initializeProductPage() {
   pageInit();
 
-  const showJSONButton = document.querySelector(".show-JSON");
-  showJSONButton.addEventListener('click', e => {
-    const jsonData = document.querySelector("#JSON-data");
-    if (showJSONButton.innerHTML == "Hide Product JSON") {
-      jsonData.style.display = "none";
-      showJSONButton.innerHTML = "Show Product JSON";
+  const showJSONButton = document.querySelector('.show-JSON');
+  showJSONButton.addEventListener('click', (e) => {
+    const jsonData = document.querySelector('#JSON-data');
+    if (showJSONButton.innerHTML == 'Hide Product JSON') {
+      jsonData.style.display = 'none';
+      showJSONButton.innerHTML = 'Show Product JSON';
+    } else {
+      jsonData.style.display = 'block';
+      showJSONButton.innerHTML = 'Hide Product JSON';
     }
-    else {
-      jsonData.style.display = "block";
-      showJSONButton.innerHTML = "Hide Product JSON";
-    }
-  })
+  });
 
   // TODO: Add Code dedicated to Product page only.
 }
