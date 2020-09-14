@@ -31,7 +31,7 @@ function index(req, res) {
     scripts: [
       '/js/home_main.js',
     ],
-    title: 'PWA Shop',
+    title: 'Purecake',
   });
 }
 

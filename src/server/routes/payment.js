@@ -22,7 +22,7 @@ const payment = {
     res.render('payment', {
       cart: req.session.cart,
       layout: req.query.fragment ? 'fragment' : 'layout',
-      title: 'PWA Shop: Payment',
+      title: 'Purecake: Payment',
     });
   },
   pay: (req, res) => {

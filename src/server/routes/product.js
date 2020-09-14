@@ -73,7 +73,7 @@ const product = {
         scripts: [
           '/js/product_main.js',
         ],
-        title: `PWA Shop: ${thisProduct.name}`,
+        title: `Purecake: ${thisProduct.name}`,
       });
     } else {
       res.status(404);

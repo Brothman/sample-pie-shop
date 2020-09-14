@@ -46,7 +46,7 @@ function _displayResults(req, res, results) {
       '/js/search_main.js',
     ],
     results: results,
-    title: `PWA Shop: Search '${req.params.query}'`,
+    title: `Purecake: Search '${req.params.query}'`,
   });
 }
 
